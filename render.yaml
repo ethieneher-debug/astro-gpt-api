@@ -1,0 +1,28 @@
+# render.yaml — Blueprint do Render (Infra as Code)
+services:
+  - type: web
+    name: astro-gpt-api
+    env: python
+    region: oregon                 # mude se preferir: oregon | frankfurt | singapore
+    branch: main                   # mude se seu branch de produção não for "main"
+    plan: free                     # mude o plano se precisar de mais recursos
+    autoDeploy: true
+
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+
+    startCommand: |
+      uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
+
+    healthCheckPath: /health
+    healthCheckTimeoutSeconds: 10
+
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.7
+      - key: TZ
+        value: UTC
+      # Se quiser sobrescrever o user-agent do Nominatim:
+      # - key: GEOPY_USER_AGENT
+      #   value: astro-gpt (production)
