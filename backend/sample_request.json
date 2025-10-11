@@ -1,0 +1,16 @@
+{
+"name": "Ethiene Herbst",
+"gender": "female",
+"year": 1987,
+"month": 7,
+"day": 30,
+"hour": 19,
+"minute": 5,
+"tz_offset_hours": -3,
+"lat": -26.1114,
+"lon": -49.8053,
+"place_str": "Mafra (Santa Catarina), BRAS",
+"ut_str": "22:05",
+"coords_str": "49w48'19, 26s06'41",
+"sidereal_time": "15:17:48"
+}
