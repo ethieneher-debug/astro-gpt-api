@@ -59,7 +59,7 @@ def _parse_br_datetime(data: str, hora: str) -> datetime:
         raise HTTPException(status_code=400, detail=f"Data/hora inválida: {e}")
 
 def _geocode(cidade_estado: str, pais: str) -> Tuple[float, float, str]:
-    geocoder = Nominatim(user_agent="astro-gpt-prod"), timeout=10)
+    geocoder = Nominatim(user_agent="astro-gpt-prod", timeout=10)
     query = f"{cidade_estado}, {pais}".strip().replace(",,", ",")
     loc = geocoder.geocode(query, language="pt")
     if not loc:
